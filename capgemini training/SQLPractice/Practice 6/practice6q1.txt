@@ -1,0 +1,49 @@
+
+SQL> SELECT last_name, hire_date FROM employees WHERE department_id = (SELECT department_id FROM employees WHERE last_name = &&input) AND last_name <> &input;
+Enter value for input: 'Zlotkey'
+old   1: SELECT last_name, hire_date FROM employees WHERE department_id = (SELECT department_id FROM employees WHERE last_name = &&input) AND last_name <> &input
+new   1: SELECT last_name, hire_date FROM employees WHERE department_id = (SELECT department_id FROM employees WHERE last_name = 'Zlotkey') AND last_name <> 'Zlotkey'
+
+LAST_NAME                 HIRE_DATE                                             
+------------------------- ---------                                             
+Russell                   01-OCT-04                                             
+Partners                  05-JAN-05                                             
+Errazuriz                 10-MAR-05                                             
+Cambrault                 15-OCT-07                                             
+Tucker                    30-JAN-05                                             
+Bernstein                 24-MAR-05                                             
+Hall                      20-AUG-05                                             
+Olsen                     30-MAR-06                                             
+Cambrault                 09-DEC-06                                             
+Tuvault                   23-NOV-07                                             
+King                      30-JAN-04                                             
+
+LAST_NAME                 HIRE_DATE                                             
+------------------------- ---------                                             
+Sully                     04-MAR-04                                             
+McEwen                    01-AUG-04                                             
+Smith                     10-MAR-05                                             
+Doran                     15-DEC-05                                             
+Sewall                    03-NOV-06                                             
+Vishney                   11-NOV-05                                             
+Greene                    19-MAR-07                                             
+Marvins                   24-JAN-08                                             
+Lee                       23-FEB-08                                             
+Ande                      24-MAR-08                                             
+Banda                     21-APR-08                                             
+
+LAST_NAME                 HIRE_DATE                                             
+------------------------- ---------                                             
+Ozer                      11-MAR-05                                             
+Bloom                     23-MAR-06                                             
+Fox                       24-JAN-06                                             
+Smith                     23-FEB-07                                             
+Bates                     24-MAR-07                                             
+Kumar                     21-APR-08                                             
+Abel                      11-MAY-04                                             
+Hutton                    19-MAR-05                                             
+Taylor                    24-MAR-06                                             
+Livingston                23-APR-06                                             
+Johnson                   04-JAN-08                                             
+
+33 rows selected.

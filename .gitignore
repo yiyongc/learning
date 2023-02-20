@@ -1,0 +1,22 @@
+# General
+.DS_Store
+.metadata
+.sonarlint
+.recommenders
+.settings
+
+# IDE
+.idea
+.vscode
+
+# Frontend
+node_modules
+.env
+
+# Backend
+target
+build
+
+# Log
+**/*.log
+

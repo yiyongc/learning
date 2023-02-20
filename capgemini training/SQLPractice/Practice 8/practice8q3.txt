@@ -1,0 +1,13 @@
+SQL> INSERT INTO my_employee VALUES (1, 'Patel', 'Ralph', 'rpatel', 895);
+
+1 row created.
+
+SQL> SELECT * FROM my_employee;
+
+        ID LAST_NAME                 FIRST_NAME                USERID           
+---------- ------------------------- ------------------------- --------         
+    SALARY                                                                      
+----------                                                                      
+         1 Patel                     Ralph                     rpatel           
+       895                                                                      
+                                                                                

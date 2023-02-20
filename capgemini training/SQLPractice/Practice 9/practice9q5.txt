@@ -1,0 +1,5 @@
+SQL> DROP TABLE emp;
+
+Table dropped.
+
+SQL> spool practice10q1.txt

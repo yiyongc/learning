@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OverFlowMenuAndTransitions</string>
+    <string name="action_settings">Settings</string>
+    <string name="red_bg_string">Red Background</string>
+    <string name="green_bg_string">Green Background</string>
+    <string name="blue_bg_string">Blue Background</string>
+</resources>

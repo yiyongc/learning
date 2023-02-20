@@ -1,0 +1,1 @@
+start curl http://admin:2d19ff28f2c849eeb7309aa2c28565ee@localhost:8080/job/Bank/build?token=jEnKiNsToKeNbAnK

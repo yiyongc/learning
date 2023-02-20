@@ -1,0 +1,154 @@
+1)
+Given : User attempts to add a Game
+When  : He passes Game with name Tennis and no. of players 2
+Then  : System should create the Game with name Tennis and no. of players 2.
+
+2)
+Given : User attempts to add a Game 
+When  : He passes a Game without a name
+Then  : System should not execute on the empty Game and provide an error message that Game name should not be empty
+
+3)
+Given : User attempts to add a Game with no players
+When  : He passes Game with Golf and no. of players 0
+Then  : System should not create the Game and provide an error message that no. of players should not be 0.
+
+4) 
+Given : User attempts to add a Game with negative no. of players
+When  : He passes Game with Golf and no. of players -2
+Then  : System should not create the Game and provide an error message that no. of players should not be 0.
+
+
+5)
+Given : User attempts to add a duplicate Game
+When  : He passes Game with name Tennis and no. of players 2 and this Game exists in System
+Then  : System should not create the Game and provide a message that the Game already exists.
+
+6)
+Given : User attempts to add Game
+When  : He passes null
+Then  : System should not create the Game and provide an error message that the Game object passed is null.
+
+7)
+Given : User attempts to add a Player
+When  : He passes Player with name Tom and Games - Tennis, Football, Badminton and at least one of the Games are in the repository
+Then  : System should create the Player with the name Tom and Games as stated.
+
+8)
+Given : User attempts to add a Player who does not play any Game in the System
+When  : He passes Player with name Tom and Games - Tennis, Football, Badminton and none of the Games are in the repository
+Then  : System should not create the Player and provide a message that Player does not play any games that are in the system.
+
+9)
+Given : User attempts to add Player
+When  : He passes Player without a name
+Then  : System should not create the Player and provide an error message that the Player's name cannot be empty.
+
+10)
+Given : User attempts to add Player
+When  : He passes Player without a game list
+Then  : System should not create the Player and provide an error message that the Player does not have any games.
+
+11)
+Given : User attempts to add Player
+When  : He passes Player with an empty game list
+Then  : System should not create the Player and provide an error message that the Player does not play any game in the System.
+
+12)
+Given : User attempts to add a duplicate Player
+When  : He passes Player with name Tom and this Player exists in System
+Then  : System should not create the Player and provide a message that the Player already exists.
+
+13)
+Given : User attempts to add Player
+When  : He passes null
+Then  : System should not create the Player and provide an error message that the Player object passed is null.
+
+14)
+Given : User attempts to add a Day
+When  : He passes Day with name of Day One and Games - Basketball, Tennis and at least one of the Games are in the repository
+Then  : System should create Day with name of Day One and Games as stated.
+
+15)
+Given : User attempts to add a Day
+When  : He passes Day with name of Day One and Games - Basketball, Tennis and none of the Games are in the repository
+Then  : System should not create the Day and provide an error message that the Day does not contain games that are in the System.
+
+16)
+Given : User attempts to add a Day
+When  : He passes Day without a name
+Then  : System should not create the Day and provide an error message that the Day's name cannot be empty.
+
+17)
+Given : User attempts to add a duplicate Day
+When  : He passes Day with name of Day One and this Day exists in System
+Then  : System should not create the Day and provide a message that the Day already exists.
+
+18)
+Given : User attempts to add a Day
+When  : He passes null
+Then  : System should not create the Day and provide an error message that the Day object passed is null.
+
+19)
+Given : User attempts to add a Day
+When  : He passes Day without a game list
+Then  : System should not create the Day and provide an error message that the Day object does not have any games.
+
+20)
+Given : User attempts to add a Day
+When  : He passes Day with an empty game list
+Then  : System should not create the Day and provide an error message that the Day does not contain any games in the System.
+
+21)
+Given : User attempts to obtain a Game wise report of an existing Game
+When  : He passes a Game name of basketball to generate report
+Then  : System finds Game basketball in the repository.
+		System obtains the players who play basketball. 
+		System obtains the days in which basketball is played.
+		System formats those data into a report.
+
+22)
+Given : User attempts to obtain a Game wise report of a non-existent Game
+When  : He passes a Game name of football to generate report but Game does not exist in repository
+Then  : System tries to find the Game football in the repository and provides an error message that Game is not found.
+
+23)
+Given : User attempts to obtain a Game wise report of an empty Game
+When  : He passes an empty Game name to generate report
+Then  : System does not search for empty Game and provides an error message that search field is empty.
+
+24)
+Given : User attempts to obtain a Player wise report of an existing Player
+When  : He passes a Player name of Thomas to generate report
+Then  : System finds Player Thomas in the repository.
+		System obtains the games which Thomas plays. 
+		System obtains the days in which the games Thomas plays are played.
+		System formats those data into a report.
+
+25)
+Given : User attempts to obtain a Player wise report of a non-existent Player
+When  : He passes a Player name of Timothy to generate report but Player does not exist in repository
+Then  : System tries to find the Player Timothy in the repository and provides an error message that Player is not found.
+
+26)
+Given : User attempts to obtain a Player wise report of an empty Player
+When  : He passes an empty Player name to generate report
+Then  : System does not search for empty Player and provides an error message that search field is empty.
+
+27)
+Given : User attempts to obtain a Day wise report of an existing Day
+When  : He passes a Day name of Semi-finals to generate report
+Then  : System finds Day Semi-finals in the repository.
+		System obtains the Games in Semi-finals. 
+		System obtains the Players who plays those Games.
+		System formats those data into a report.
+
+28)
+Given : User attempts to obtain a Day wise report of a non-existent Day
+When  : He passes a Day name of Day Zero to generate report but Day does not exist in repository
+Then  : System tries to find the Day Day Zero in the repository and provides an error message that Day is not found.
+
+29)
+Given : User attempts to obtain a Day wise report 
+When  : He passes an empty Day name to generate report
+Then  : System does not search for empty Day and provides an error message that search field is empty.

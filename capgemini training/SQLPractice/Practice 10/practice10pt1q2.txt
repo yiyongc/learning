@@ -1,0 +1,140 @@
+SQL> SELECT * FROM employees_vu;
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        100 King                                 90                             
+        101 Kochhar                              90                             
+        102 De Haan                              90                             
+        103 Hunold                               60                             
+        104 Ernst                                60                             
+        105 Austin                               60                             
+        106 Pataballa                            60                             
+        107 Lorentz                              60                             
+        108 Greenberg                           100                             
+        109 Faviet                              100                             
+        110 Chen                                100                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        111 Sciarra                             100                             
+        112 Urman                               100                             
+        113 Popp                                100                             
+        114 Raphaely                             30                             
+        115 Khoo                                 30                             
+        116 Baida                                30                             
+        117 Tobias                               30                             
+        118 Himuro                               30                             
+        119 Colmenares                           30                             
+        120 Weiss                                50                             
+        121 Fripp                                50                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        122 Kaufling                             50                             
+        123 Vollman                              50                             
+        124 Mourgos                              50                             
+        125 Nayer                                50                             
+        126 Mikkilineni                          50                             
+        127 Landry                               50                             
+        128 Markle                               50                             
+        129 Bissot                               50                             
+        130 Atkinson                             50                             
+        131 Marlow                               50                             
+        132 Olson                                50                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        133 Mallin                               50                             
+        134 Rogers                               50                             
+        135 Gee                                  50                             
+        136 Philtanker                           50                             
+        137 Ladwig                               50                             
+        138 Stiles                               50                             
+        139 Seo                                  50                             
+        140 Patel                                50                             
+        141 Rajs                                 50                             
+        142 Davies                               50                             
+        143 Matos                                50                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        144 Vargas                               50                             
+        145 Russell                              80                             
+        146 Partners                             80                             
+        147 Errazuriz                            80                             
+        148 Cambrault                            80                             
+        149 Zlotkey                              80                             
+        150 Tucker                               80                             
+        151 Bernstein                            80                             
+        152 Hall                                 80                             
+        153 Olsen                                80                             
+        154 Cambrault                            80                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        155 Tuvault                              80                             
+        156 King                                 80                             
+        157 Sully                                80                             
+        158 McEwen                               80                             
+        159 Smith                                80                             
+        160 Doran                                80                             
+        161 Sewall                               80                             
+        162 Vishney                              80                             
+        163 Greene                               80                             
+        164 Marvins                              80                             
+        165 Lee                                  80                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        166 Ande                                 80                             
+        167 Banda                                80                             
+        168 Ozer                                 80                             
+        169 Bloom                                80                             
+        170 Fox                                  80                             
+        171 Smith                                80                             
+        172 Bates                                80                             
+        173 Kumar                                80                             
+        174 Abel                                 80                             
+        175 Hutton                               80                             
+        176 Taylor                               80                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        177 Livingston                           80                             
+        178 Grant                                                               
+        179 Johnson                              80                             
+        180 Taylor                               50                             
+        181 Fleaur                               50                             
+        182 Sullivan                             50                             
+        183 Geoni                                50                             
+        184 Sarchand                             50                             
+        185 Bull                                 50                             
+        186 Dellinger                            50                             
+        187 Cabrio                               50                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        188 Chung                                50                             
+        189 Dilly                                50                             
+        190 Gates                                50                             
+        191 Perkins                              50                             
+        192 Bell                                 50                             
+        193 Everett                              50                             
+        194 McCain                               50                             
+        195 Jones                                50                             
+        196 Walsh                                50                             
+        197 Feeney                               50                             
+        198 OConnell                             50                             
+
+EMPLOYEE_ID EMPLOYEE                  DEPARTMENT_ID                             
+----------- ------------------------- -------------                             
+        199 Grant                                50                             
+        200 Whalen                               10                             
+        201 Hartstein                            20                             
+        202 Fay                                  20                             
+        203 Mavris                               40                             
+        204 Baer                                 70                             
+        205 Higgins                             110                             
+        206 Gietz                               110                             
+
+107 rows selected.

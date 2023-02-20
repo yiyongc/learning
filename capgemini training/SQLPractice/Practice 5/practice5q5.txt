@@ -1,0 +1,140 @@
+SQL> SELECT t1.last_name AS Employee, t1.employee_id AS "Emp#", t2.last_name AS Manager, t2.employee_id AS "Mgr#" FROM employees t1 LEFT JOIN employees t2 ON t1.manager_id = t2.employee_id ORDER BY t2.employee_id;
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Hartstein                        201 King                             100       
+Zlotkey                          149 King                             100       
+Cambrault                        148 King                             100       
+Errazuriz                        147 King                             100       
+Partners                         146 King                             100       
+Russell                          145 King                             100       
+Mourgos                          124 King                             100       
+Vollman                          123 King                             100       
+Kaufling                         122 King                             100       
+Fripp                            121 King                             100       
+Weiss                            120 King                             100       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Raphaely                         114 King                             100       
+De Haan                          102 King                             100       
+Kochhar                          101 King                             100       
+Higgins                          205 Kochhar                          101       
+Baer                             204 Kochhar                          101       
+Mavris                           203 Kochhar                          101       
+Whalen                           200 Kochhar                          101       
+Greenberg                        108 Kochhar                          101       
+Hunold                           103 De Haan                          102       
+Lorentz                          107 Hunold                           103       
+Pataballa                        106 Hunold                           103       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Austin                           105 Hunold                           103       
+Ernst                            104 Hunold                           103       
+Popp                             113 Greenberg                        108       
+Urman                            112 Greenberg                        108       
+Sciarra                          111 Greenberg                        108       
+Chen                             110 Greenberg                        108       
+Faviet                           109 Greenberg                        108       
+Colmenares                       119 Raphaely                         114       
+Himuro                           118 Raphaely                         114       
+Tobias                           117 Raphaely                         114       
+Baida                            116 Raphaely                         114       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Khoo                             115 Raphaely                         114       
+Geoni                            183 Weiss                            120       
+Sullivan                         182 Weiss                            120       
+Fleaur                           181 Weiss                            120       
+Taylor                           180 Weiss                            120       
+Markle                           128 Weiss                            120       
+Landry                           127 Weiss                            120       
+Mikkilineni                      126 Weiss                            120       
+Nayer                            125 Weiss                            120       
+Cabrio                           187 Fripp                            121       
+Dellinger                        186 Fripp                            121       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Bull                             185 Fripp                            121       
+Sarchand                         184 Fripp                            121       
+Olson                            132 Fripp                            121       
+Marlow                           131 Fripp                            121       
+Atkinson                         130 Fripp                            121       
+Bissot                           129 Fripp                            121       
+Perkins                          191 Kaufling                         122       
+Gates                            190 Kaufling                         122       
+Dilly                            189 Kaufling                         122       
+Chung                            188 Kaufling                         122       
+Philtanker                       136 Kaufling                         122       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Gee                              135 Kaufling                         122       
+Rogers                           134 Kaufling                         122       
+Mallin                           133 Kaufling                         122       
+Jones                            195 Vollman                          123       
+McCain                           194 Vollman                          123       
+Everett                          193 Vollman                          123       
+Bell                             192 Vollman                          123       
+Patel                            140 Vollman                          123       
+Seo                              139 Vollman                          123       
+Stiles                           138 Vollman                          123       
+Ladwig                           137 Vollman                          123       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Grant                            199 Mourgos                          124       
+OConnell                         198 Mourgos                          124       
+Feeney                           197 Mourgos                          124       
+Walsh                            196 Mourgos                          124       
+Vargas                           144 Mourgos                          124       
+Matos                            143 Mourgos                          124       
+Davies                           142 Mourgos                          124       
+Rajs                             141 Mourgos                          124       
+Tuvault                          155 Russell                          145       
+Cambrault                        154 Russell                          145       
+Olsen                            153 Russell                          145       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Hall                             152 Russell                          145       
+Bernstein                        151 Russell                          145       
+Tucker                           150 Russell                          145       
+Sewall                           161 Partners                         146       
+Doran                            160 Partners                         146       
+Smith                            159 Partners                         146       
+McEwen                           158 Partners                         146       
+Sully                            157 Partners                         146       
+King                             156 Partners                         146       
+Banda                            167 Errazuriz                        147       
+Ande                             166 Errazuriz                        147       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Lee                              165 Errazuriz                        147       
+Marvins                          164 Errazuriz                        147       
+Greene                           163 Errazuriz                        147       
+Vishney                          162 Errazuriz                        147       
+Kumar                            173 Cambrault                        148       
+Bates                            172 Cambrault                        148       
+Smith                            171 Cambrault                        148       
+Fox                              170 Cambrault                        148       
+Bloom                            169 Cambrault                        148       
+Ozer                             168 Cambrault                        148       
+Livingston                       177 Zlotkey                          149       
+
+EMPLOYEE                        Emp# MANAGER                         Mgr#       
+------------------------- ---------- ------------------------- ----------       
+Abel                             174 Zlotkey                          149       
+Hutton                           175 Zlotkey                          149       
+Johnson                          179 Zlotkey                          149       
+Grant                            178 Zlotkey                          149       
+Taylor                           176 Zlotkey                          149       
+Fay                              202 Hartstein                        201       
+Gietz                            206 Higgins                          205       
+King                             100                                            
+
+107 rows selected.

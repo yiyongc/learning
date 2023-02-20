@@ -1,0 +1,140 @@
+SQL> SELECT employee, department_id FROM employees_vu;
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+King                                 90                                         
+Kochhar                              90                                         
+De Haan                              90                                         
+Hunold                               60                                         
+Ernst                                60                                         
+Austin                               60                                         
+Pataballa                            60                                         
+Lorentz                              60                                         
+Greenberg                           100                                         
+Faviet                              100                                         
+Chen                                100                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Sciarra                             100                                         
+Urman                               100                                         
+Popp                                100                                         
+Raphaely                             30                                         
+Khoo                                 30                                         
+Baida                                30                                         
+Tobias                               30                                         
+Himuro                               30                                         
+Colmenares                           30                                         
+Weiss                                50                                         
+Fripp                                50                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Kaufling                             50                                         
+Vollman                              50                                         
+Mourgos                              50                                         
+Nayer                                50                                         
+Mikkilineni                          50                                         
+Landry                               50                                         
+Markle                               50                                         
+Bissot                               50                                         
+Atkinson                             50                                         
+Marlow                               50                                         
+Olson                                50                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Mallin                               50                                         
+Rogers                               50                                         
+Gee                                  50                                         
+Philtanker                           50                                         
+Ladwig                               50                                         
+Stiles                               50                                         
+Seo                                  50                                         
+Patel                                50                                         
+Rajs                                 50                                         
+Davies                               50                                         
+Matos                                50                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Vargas                               50                                         
+Russell                              80                                         
+Partners                             80                                         
+Errazuriz                            80                                         
+Cambrault                            80                                         
+Zlotkey                              80                                         
+Tucker                               80                                         
+Bernstein                            80                                         
+Hall                                 80                                         
+Olsen                                80                                         
+Cambrault                            80                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Tuvault                              80                                         
+King                                 80                                         
+Sully                                80                                         
+McEwen                               80                                         
+Smith                                80                                         
+Doran                                80                                         
+Sewall                               80                                         
+Vishney                              80                                         
+Greene                               80                                         
+Marvins                              80                                         
+Lee                                  80                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Ande                                 80                                         
+Banda                                80                                         
+Ozer                                 80                                         
+Bloom                                80                                         
+Fox                                  80                                         
+Smith                                80                                         
+Bates                                80                                         
+Kumar                                80                                         
+Abel                                 80                                         
+Hutton                               80                                         
+Taylor                               80                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Livingston                           80                                         
+Grant                                                                           
+Johnson                              80                                         
+Taylor                               50                                         
+Fleaur                               50                                         
+Sullivan                             50                                         
+Geoni                                50                                         
+Sarchand                             50                                         
+Bull                                 50                                         
+Dellinger                            50                                         
+Cabrio                               50                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Chung                                50                                         
+Dilly                                50                                         
+Gates                                50                                         
+Perkins                              50                                         
+Bell                                 50                                         
+Everett                              50                                         
+McCain                               50                                         
+Jones                                50                                         
+Walsh                                50                                         
+Feeney                               50                                         
+OConnell                             50                                         
+
+EMPLOYEE                  DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Grant                                50                                         
+Whalen                               10                                         
+Hartstein                            20                                         
+Fay                                  20                                         
+Mavris                               40                                         
+Baer                                 70                                         
+Higgins                             110                                         
+Gietz                               110                                         
+
+107 rows selected.

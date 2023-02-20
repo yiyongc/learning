@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<inputfile name="a.csv" time="16:00" grace-period="30">
+		<structure>
+			<field name="firstname1" type="text"/>
+			<field name="lastname1" type="text"/>
+			<field name="number" type="int"/>
+		</structure>
+	</inputfile>
+	<inputfile name="b.csv" time="10:00" grace-period="30">
+		<structure>
+			<field name="firstname" type="text"/>
+			<field name="lastname" type="text"/>
+		</structure>
+	</inputfile>
+	<inputfile name="c.csv" time="23:00" grace-period="30">
+		<structure>
+			<field name="name" type="text"/>
+			<field name="date" type="date"/>
+			<field name="datetime" type="datetime"/>
+			<field name="mydouble" type="double"/>
+		</structure>
+	</inputfile>
+	
+	<outputfile name="x.csv" time="15:50">
+		<dependency file="a.csv"/>
+		<dependency file="b.csv"/>
+	</outputfile>
+	
+	<outputfile name="y.csv" time="14:27">
+		<dependency file="a.csv"/>
+		<dependency file="c.csv"/>
+	</outputfile>
+</config>

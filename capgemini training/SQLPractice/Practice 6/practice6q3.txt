@@ -1,0 +1,120 @@
+SQL> SELECT employee_id, last_name FROM employees WHERE department_id IN (SELECT DISTINCT department_id FROM employees WHERE last_name LIKE '%u%');
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        107 Lorentz                                                             
+        106 Pataballa                                                           
+        105 Austin                                                              
+        104 Ernst                                                               
+        103 Hunold                                                              
+        199 Grant                                                               
+        198 OConnell                                                            
+        197 Feeney                                                              
+        196 Walsh                                                               
+        195 Jones                                                               
+        194 McCain                                                              
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        193 Everett                                                             
+        192 Bell                                                                
+        191 Perkins                                                             
+        190 Gates                                                               
+        189 Dilly                                                               
+        188 Chung                                                               
+        187 Cabrio                                                              
+        186 Dellinger                                                           
+        185 Bull                                                                
+        184 Sarchand                                                            
+        183 Geoni                                                               
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        182 Sullivan                                                            
+        181 Fleaur                                                              
+        180 Taylor                                                              
+        144 Vargas                                                              
+        143 Matos                                                               
+        142 Davies                                                              
+        141 Rajs                                                                
+        140 Patel                                                               
+        139 Seo                                                                 
+        138 Stiles                                                              
+        137 Ladwig                                                              
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        136 Philtanker                                                          
+        135 Gee                                                                 
+        134 Rogers                                                              
+        133 Mallin                                                              
+        132 Olson                                                               
+        131 Marlow                                                              
+        130 Atkinson                                                            
+        129 Bissot                                                              
+        128 Markle                                                              
+        127 Landry                                                              
+        126 Mikkilineni                                                         
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        125 Nayer                                                               
+        124 Mourgos                                                             
+        123 Vollman                                                             
+        122 Kaufling                                                            
+        121 Fripp                                                               
+        120 Weiss                                                               
+        179 Johnson                                                             
+        177 Livingston                                                          
+        176 Taylor                                                              
+        175 Hutton                                                              
+        174 Abel                                                                
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        173 Kumar                                                               
+        172 Bates                                                               
+        171 Smith                                                               
+        170 Fox                                                                 
+        169 Bloom                                                               
+        168 Ozer                                                                
+        167 Banda                                                               
+        166 Ande                                                                
+        165 Lee                                                                 
+        164 Marvins                                                             
+        163 Greene                                                              
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        162 Vishney                                                             
+        161 Sewall                                                              
+        160 Doran                                                               
+        159 Smith                                                               
+        158 McEwen                                                              
+        157 Sully                                                               
+        156 King                                                                
+        155 Tuvault                                                             
+        154 Cambrault                                                           
+        153 Olsen                                                               
+        152 Hall                                                                
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        151 Bernstein                                                           
+        150 Tucker                                                              
+        149 Zlotkey                                                             
+        148 Cambrault                                                           
+        147 Errazuriz                                                           
+        146 Partners                                                            
+        145 Russell                                                             
+        119 Colmenares                                                          
+        118 Himuro                                                              
+        117 Tobias                                                              
+        116 Baida                                                               
+
+EMPLOYEE_ID LAST_NAME                                                           
+----------- -------------------------                                           
+        115 Khoo                                                                
+        114 Raphaely                                                            
+
+90 rows selected.

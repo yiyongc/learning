@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  position: relative;
+  height: 400px;
+  line-height: 400px;
+  text-align: center;
+  /* border-bottom: 1px solid #a7a7a7; */
+}
+
+.bannerText,
+.canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.container span {
+  font-family: "Robotica";
+  font-size: 65px;
+  text-shadow: -1px 0 #1f6353, 0 1px #1f6353, 1px 0 #1f6353, 0 -1px #1f6353;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}

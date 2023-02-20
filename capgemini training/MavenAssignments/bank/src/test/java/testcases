@@ -1,0 +1,120 @@
+1)
+Given : User attempts to add an Account
+When  : He creates account with $100 and Customer Name Tom
+Then  : System should create the Account with $100 balance
+
+2)
+Given : User attempts to add an Account
+When  : He creates account with $10 and Customer Name Tom
+Then  : System should throw InvalidAccountCreationException
+
+3)
+Given : User attempts to add an Account
+When  : He creates account with $100 and empty name
+Then  : System should throw InvalidAccountCreationException
+
+4)
+Given : User attempts to withdraw money
+When  : He withdraws $20 from $100 balance
+Then  : System should show that the transaction has succeeded with balance of $80
+
+5)
+Given : User attempts to withdraw money
+When  : He withdraws $101 from $100 balance
+Then  : System should throw InsufficientBalanceException
+
+6)
+Given : User attempts to withdraw money
+When  : He withdraws more than $1000 on the same day
+Then  : System should throw WithdrawLimitException
+
+7)
+Given : User attempts to withdraw money
+When  : He withdraws money from an invalid account
+Then  : System should throw InvalidAccountException
+
+8)
+Given : User attempts to withdraw money
+When  : He withdraws $0 or negative amounts from an account
+Then  : System should throw InvalidAmountException
+
+9)
+Given : User attempts to deposit money
+When  : He deposits $10 to the correct account
+Then  : System should show that the transaction has succeeded with the balance of the account
+
+10)
+Given : User attempts to deposit money
+When  : He deposits $10 to a invalid account
+Then  : System should throw InvalidAccountException
+
+11)
+Given : User attempts to deposit money
+When  : He deposits $0 or negative amounts
+Then  : System should throw InvalidAmountException
+
+12)
+Given : User attempts to view balance of account
+When  : He enters a valid account number
+Then  : System should show account balance
+
+13)
+Given : User attempts to view balance of account
+When  : He enters an invalid account number
+Then  : System should throw InvalidAccountException
+
+14)
+Given : User attempts to transfer funds
+When  : He enters valid account numbers and has sufficient balance for transfer
+Then  : System should show that the transaction has succeeded with the balance of the account
+
+15)
+Given : User attempts to transfer funds
+When  : He enters valid account numbers and has insufficient balance for transfer
+Then  : System should throw InsufficientBalanceException
+
+16)
+Given : User attempts to transfer funds
+When  : He enters invalid account numbers for source account
+Then  : System should throw InvalidAccountException
+
+17)
+Given : User attempts to transfer funds
+When  : He enters invalid account numbers for destination account
+Then  : System should throw InvalidAccountException
+
+18)
+Given : User attempts to transfer funds
+When  : He enters $0 or negative amounts to transfer
+Then  : System should throw InvalidAmountException
+
+19)
+Given : User attempts to view transaction history
+When  : He enters valid account number
+Then  : System should display last ten transactions for the account
+
+20)
+Given : User attempts to view transaction history
+When  : He enters valid account number but account has less than 10 transactions
+Then  : System should display all the transactions for the account
+
+21)
+Given : User attempts to view transaction history
+When  : He enters invalid account number
+Then  : System should throw InvalidAccountException
+
+22)
+Given : User attempts to view transaction history
+When  : He enters valid account number and date range
+Then  : System should display the transactions within the date range inclusive
+
+23)
+Given : User attempts to view transaction history
+When  : He enters valid account number but incorrect date range
+Then  : System should throw IncorrectDateRangeException
+
+24)
+Given : User attempts to view transaction history
+When  : He enters valid account number and date range but has no transaction history
+Then  : System should display a message to show that the account has no transactions
+

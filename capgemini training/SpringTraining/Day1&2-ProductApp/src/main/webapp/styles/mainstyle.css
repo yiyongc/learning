@@ -1,0 +1,46 @@
+@CHARSET "ISO-8859-1";
+
+.errMsg {
+	color: red;
+	font-weight: bold;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.loginBox {
+	margin-left: 900px;
+}
+
+.loginPage {
+	background-color: #999;
+}
+
+h1 {
+	text-align: center;
+	color: green;
+	text-decoration: underline;
+}
+
+.productform {
+	margin: 0 300px 0 300px;
+}
+
+body, html {
+  height: 100%;
+}
+
+.menubutton {
+	text-decoration:none;
+	color: #ffffcc;
+	border: 1px;
+	background-color: gray;
+	padding: 5px;
+	margin-right: 50px;
+	border: thick;
+}
+
+.menubutton:HOVER {
+	border-color: white;
+}
+
+}

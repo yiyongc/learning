@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form Test</title>
+<script type="text/javascript" src="script/validation.js"></script>
+<link href="styles/mainstyle.css" rel="stylesheet" type="text/css"></link>
+</head>
+<body class="loginPage">
+
+<h1> Login Form </h1>
+<hr>
+<fieldset class="loginBox">
+	<form method="post" action="LoginServlet" onsubmit="return validateLogin()">
+		<h3>Login</h3>
+		<table>
+			<tr>
+				<td>Username: </td>
+				<td><input type="text" name="username" size="20" id="username"></input></td>
+				<td><div id="userErr" class="errMsg"></div></td>
+			</tr>
+			<tr>
+				<td>Password: </td>
+				<td><input type="password" name="password" size="20" id="password"></input></td>
+				<td><div id="passErr" class="errMsg"></div></td>
+			</tr>
+			<tr>
+			<td></td>
+				<td>
+					<button type="submit">Login</button>
+					<button type="reset">Clear</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</fieldset>
+<hr>
+
+</body>
+</html>

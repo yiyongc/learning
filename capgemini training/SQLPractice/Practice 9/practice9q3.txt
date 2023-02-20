@@ -1,0 +1,12 @@
+SQL> CREATE TABLE emp(id NUMBER(7), last_name VARCHAR2(25), first_name VARCHAR2(25), dept_id NUMBER(7) constraint dept_id_fk REFERENCES dept(id));
+
+Table created.
+
+SQL> describe emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(7)
+ LAST_NAME                                          VARCHAR2(25)
+ FIRST_NAME                                         VARCHAR2(25)
+ DEPT_ID                                            NUMBER(7)
+

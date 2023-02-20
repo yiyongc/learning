@@ -1,0 +1,10 @@
+
+SQL> CREATE TABLE dept(id NUMBER(7) CONSTRAINT my_dept_id_pk PRIMARY KEY, name VARCHAR2(25));
+
+Table created.
+
+SQL> describe dept
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                        NOT NULL NUMBER(7)
+ NAME                                               VARCHAR2(25)

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Assignment 3 - Job Form</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+	<h1> Job Details:</h1>
+	
+	<form id="jobForm" method="post" action="index.htm" enctype="application/x-www-form-urlencoded" onsubmit="selectAllOptions()">
+		<table border="1">
+			<tr>
+				<td class="tableDesc"> Job Title: </td>
+				<td> <input name="jobTitle"></input> </td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Description: </td>
+				<td> <textarea name="desc" rows="4" cols="21" maxlength="500"></textarea> 
+				<br><br> Brief description should have at most 500 characters</td>
+			</tr>	
+			<tr>
+				<td class="tableDesc"> Company Name: </td>
+				<td> <input name="companyName"></input> </td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Contact number: </td>
+				<td> <input name="contactNum" type="number"></input> </td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Contact person: </td>
+				<td> <input name="contactPerson"></input> </td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Email: </td>
+				<td> <input name="email" type="email"></input> </td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Work Status: </td>
+				<td>
+					<input type="checkbox" name="workstatus" value="fulltime">Full Time</input>
+					<input type="checkbox" name="workstatus" value="parttime">Part Time</input>
+					<input type="checkbox" name="workstatus" value="perdim">Per Dim</input>
+					<input type="checkbox" name="workstatus" value="others">Others</input>
+				</td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Salary </td>
+				<td> <input name="salary"></input> 
+					<select name="currency" id="salaryoption">
+						<option value="USD">US Dollar</option>
+						<option value="SGD">SG Dollar</option>
+					</select> 
+					<select name="timeframe" id="salaryoption">
+						<option value="yearly">Yearly</option>
+						<option value="monthly">Monthly</option>
+					</select> 
+				</td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Experience(Years) </td>
+				<td> <input name="experience" type="number"></input> </td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Locations </td>
+				<td> <input name="locations"></input> </td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> Qualifications: </td>
+				<td> 
+					<section class="container">
+						<div>
+						<select id="leftValues" size="5" multiple>
+							<option>High School</option>
+							<option>Pre Bachelors</option>
+							<option>Bachelors</option>
+							<option>Masters</option>
+							<option>Doctorate</option>
+						</select>
+						</div>
+						<div>
+							<input type="button" id="btnAdd" onclick="addToList()" value="Add &gt;&gt;" on/> <br><br>
+							<input type="button" id="btnRemove" onclick="removeFromList()" value="&lt;&lt; Remove" /> 
+						</div>		
+						<div>
+						<select id="rightValues" size="5" multiple name="qualifications[]"></select>
+						</div>	
+					</section>
+					
+					<script type="text/javascript">
+						function addToList() {
+							var selectedItem = $("#leftValues option:selected");
+							$("#rightValues").append(selectedItem);
+						}
+										
+						function removeFromList() {
+							var selectedItem = $("#rightValues option:selected");
+							$("#leftValues").append(selectedItem);
+						}
+						
+						function resetForm() {
+							document.getElementById("jobForm").reset();
+							var length = document.getElementById("rightValues").length;
+							for (var i=0; i< length ; i++) {
+								var selectedItem = document.getElementById("rightValues")[0];
+								$("#leftValues").append(selectedItem);
+							}
+						}
+						
+						function selectAllOptions()	{
+						  var selObj = document.getElementById("rightValues");
+						  for (var i=0; i<selObj.options.length; i++) {
+							selObj.options[i].selected = true;
+						  }
+						}
+					</script>
+				</td>
+			</tr>
+			<tr>
+				<td class="tableDesc"> <input type=submit value="Submit"></input></td>
+				<td> <input type=reset value="Reset" onclick="resetForm()"></input></td>
+			</tr>
+		</table>
+		
+		
+		
+	</form>
+</body>
+
+<footer>
+  Created by: Chee Yi Yong
+  <br>
+  August 2017
+</footer>
+</html>	

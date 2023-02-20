@@ -1,0 +1,12 @@
+SQL> SELECT * FROM my_employee;
+
+        ID LAST_NAME                 FIRST_NAME                USERID           
+---------- ------------------------- ------------------------- --------         
+    SALARY                                                                      
+----------                                                                      
+         1 Patel                     Ralph                     rpatel           
+       895                                                                      
+                                                                                
+         2 Dancs                     Betty                     bdancs           
+       860                                                                      
+                                                                                

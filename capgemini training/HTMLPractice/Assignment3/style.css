@@ -1,0 +1,56 @@
+body {
+	background-color: #d5dfef;
+	font-family: arial, sans-serif;
+}
+
+h1 {
+	font-size: 1.5em;
+	text-align:center;
+}
+footer {
+	margin-top: 2em;
+	text-align: center;
+	font-size: 0.7em;
+	font-weight: bold;
+}
+
+td {
+	padding: 5px;
+	border-style: dotted;
+}
+
+table {
+	margin: auto;
+	font-size: 0.85em;
+	outline-style: dotted;
+	outline-width: 1px;
+overflow: auto;
+}
+
+.tableDesc {
+	width: 150px;
+	text-align:right;
+}
+
+#salaryoption {
+	width:100px;
+	
+}
+
+select, input[type="text"] {
+    width: 160px;
+    box-sizing: border-box;
+}
+
+section div {
+	float: left;
+	padding: 10px;
+}
+
+input[type=submit], input[type=reset], input[type=button] {
+    width: 100px;
+}
+
+.clear{
+    clear:both;
+}

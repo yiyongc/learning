@@ -1,0 +1,144 @@
+Correct Statement:
+
+SQL> SELECT employee_id, last_name, salary * 12 AS annual_salary FROM Employees;
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        100 King                             288000                             
+        101 Kochhar                          204000                             
+        102 De Haan                          204000                             
+        103 Hunold                           108000                             
+        104 Ernst                             72000                             
+        105 Austin                            57600                             
+        106 Pataballa                         57600                             
+        107 Lorentz                           50400                             
+        108 Greenberg                        144096                             
+        109 Faviet                           108000                             
+        110 Chen                              98400                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        111 Sciarra                           92400                             
+        112 Urman                             93600                             
+        113 Popp                              82800                             
+        114 Raphaely                         132000                             
+        115 Khoo                              37200                             
+        116 Baida                             34800                             
+        117 Tobias                            33600                             
+        118 Himuro                            31200                             
+        119 Colmenares                        30000                             
+        120 Weiss                             96000                             
+        121 Fripp                             98400                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        122 Kaufling                          94800                             
+        123 Vollman                           78000                             
+        124 Mourgos                           69600                             
+        125 Nayer                             38400                             
+        126 Mikkilineni                       32400                             
+        127 Landry                            28800                             
+        128 Markle                            26400                             
+        129 Bissot                            39600                             
+        130 Atkinson                          33600                             
+        131 Marlow                            30000                             
+        132 Olson                             25200                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        133 Mallin                            39600                             
+        134 Rogers                            34800                             
+        135 Gee                               28800                             
+        136 Philtanker                        26400                             
+        137 Ladwig                            43200                             
+        138 Stiles                            38400                             
+        139 Seo                               32400                             
+        140 Patel                             30000                             
+        141 Rajs                              42000                             
+        142 Davies                            37200                             
+        143 Matos                             31200                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        144 Vargas                            30000                             
+        145 Russell                          168000                             
+        146 Partners                         162000                             
+        147 Errazuriz                        144000                             
+        148 Cambrault                        132000                             
+        149 Zlotkey                          126000                             
+        150 Tucker                           120000                             
+        151 Bernstein                        114000                             
+        152 Hall                             108000                             
+        153 Olsen                             96000                             
+        154 Cambrault                         90000                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        155 Tuvault                           84000                             
+        156 King                             120000                             
+        157 Sully                            114000                             
+        158 McEwen                           108000                             
+        159 Smith                             96000                             
+        160 Doran                             90000                             
+        161 Sewall                            84000                             
+        162 Vishney                          126000                             
+        163 Greene                           114000                             
+        164 Marvins                           86400                             
+        165 Lee                               81600                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        166 Ande                              76800                             
+        167 Banda                             74400                             
+        168 Ozer                             138000                             
+        169 Bloom                            120000                             
+        170 Fox                              115200                             
+        171 Smith                             88800                             
+        172 Bates                             87600                             
+        173 Kumar                             73200                             
+        174 Abel                             132000                             
+        175 Hutton                           105600                             
+        176 Taylor                           103200                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        177 Livingston                       100800                             
+        178 Grant                             84000                             
+        179 Johnson                           74400                             
+        180 Taylor                            38400                             
+        181 Fleaur                            37200                             
+        182 Sullivan                          30000                             
+        183 Geoni                             33600                             
+        184 Sarchand                          50400                             
+        185 Bull                              49200                             
+        186 Dellinger                         40800                             
+        187 Cabrio                            36000                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        188 Chung                             45600                             
+        189 Dilly                             43200                             
+        190 Gates                             34800                             
+        191 Perkins                           30000                             
+        192 Bell                              48000                             
+        193 Everett                           46800                             
+        194 McCain                            38400                             
+        195 Jones                             33600                             
+        196 Walsh                             37200                             
+        197 Feeney                            36000                             
+        198 OConnell                          31200                             
+
+EMPLOYEE_ID LAST_NAME                 ANNUAL_SALARY                             
+----------- ------------------------- -------------                             
+        199 Grant                             31200                             
+        200 Whalen                            52800                             
+        201 Hartstein                        156000                             
+        202 Fay                               72000                             
+        203 Mavris                            78000                             
+        204 Baer                             120000                             
+        205 Higgins                          144096                             
+        206 Gietz                             99600                             
+
+107 rows selected.
+
+SQL> spool off

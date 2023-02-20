@@ -1,0 +1,4 @@
+SimpleJson==3.17.2
+Flask==1.1.2
+Flask-SQLAlchemy==2.5.1
+mysql-connector-python==8.0.23

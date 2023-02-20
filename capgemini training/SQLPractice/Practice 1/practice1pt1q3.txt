@@ -1,0 +1,142 @@
+SQL> SELECT last_name, job_id, salary AS sal FROM employees;
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+King                      AD_PRES         24000                                 
+Kochhar                   AD_VP           17000                                 
+De Haan                   AD_VP           17000                                 
+Hunold                    IT_PROG          9000                                 
+Ernst                     IT_PROG          6000                                 
+Austin                    IT_PROG          4800                                 
+Pataballa                 IT_PROG          4800                                 
+Lorentz                   IT_PROG          4200                                 
+Greenberg                 FI_MGR          12008                                 
+Faviet                    FI_ACCOUNT       9000                                 
+Chen                      FI_ACCOUNT       8200                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Sciarra                   FI_ACCOUNT       7700                                 
+Urman                     FI_ACCOUNT       7800                                 
+Popp                      FI_ACCOUNT       6900                                 
+Raphaely                  PU_MAN          11000                                 
+Khoo                      PU_CLERK         3100                                 
+Baida                     PU_CLERK         2900                                 
+Tobias                    PU_CLERK         2800                                 
+Himuro                    PU_CLERK         2600                                 
+Colmenares                PU_CLERK         2500                                 
+Weiss                     ST_MAN           8000                                 
+Fripp                     ST_MAN           8200                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Kaufling                  ST_MAN           7900                                 
+Vollman                   ST_MAN           6500                                 
+Mourgos                   ST_MAN           5800                                 
+Nayer                     ST_CLERK         3200                                 
+Mikkilineni               ST_CLERK         2700                                 
+Landry                    ST_CLERK         2400                                 
+Markle                    ST_CLERK         2200                                 
+Bissot                    ST_CLERK         3300                                 
+Atkinson                  ST_CLERK         2800                                 
+Marlow                    ST_CLERK         2500                                 
+Olson                     ST_CLERK         2100                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Mallin                    ST_CLERK         3300                                 
+Rogers                    ST_CLERK         2900                                 
+Gee                       ST_CLERK         2400                                 
+Philtanker                ST_CLERK         2200                                 
+Ladwig                    ST_CLERK         3600                                 
+Stiles                    ST_CLERK         3200                                 
+Seo                       ST_CLERK         2700                                 
+Patel                     ST_CLERK         2500                                 
+Rajs                      ST_CLERK         3500                                 
+Davies                    ST_CLERK         3100                                 
+Matos                     ST_CLERK         2600                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Vargas                    ST_CLERK         2500                                 
+Russell                   SA_MAN          14000                                 
+Partners                  SA_MAN          13500                                 
+Errazuriz                 SA_MAN          12000                                 
+Cambrault                 SA_MAN          11000                                 
+Zlotkey                   SA_MAN          10500                                 
+Tucker                    SA_REP          10000                                 
+Bernstein                 SA_REP           9500                                 
+Hall                      SA_REP           9000                                 
+Olsen                     SA_REP           8000                                 
+Cambrault                 SA_REP           7500                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Tuvault                   SA_REP           7000                                 
+King                      SA_REP          10000                                 
+Sully                     SA_REP           9500                                 
+McEwen                    SA_REP           9000                                 
+Smith                     SA_REP           8000                                 
+Doran                     SA_REP           7500                                 
+Sewall                    SA_REP           7000                                 
+Vishney                   SA_REP          10500                                 
+Greene                    SA_REP           9500                                 
+Marvins                   SA_REP           7200                                 
+Lee                       SA_REP           6800                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Ande                      SA_REP           6400                                 
+Banda                     SA_REP           6200                                 
+Ozer                      SA_REP          11500                                 
+Bloom                     SA_REP          10000                                 
+Fox                       SA_REP           9600                                 
+Smith                     SA_REP           7400                                 
+Bates                     SA_REP           7300                                 
+Kumar                     SA_REP           6100                                 
+Abel                      SA_REP          11000                                 
+Hutton                    SA_REP           8800                                 
+Taylor                    SA_REP           8600                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Livingston                SA_REP           8400                                 
+Grant                     SA_REP           7000                                 
+Johnson                   SA_REP           6200                                 
+Taylor                    SH_CLERK         3200                                 
+Fleaur                    SH_CLERK         3100                                 
+Sullivan                  SH_CLERK         2500                                 
+Geoni                     SH_CLERK         2800                                 
+Sarchand                  SH_CLERK         4200                                 
+Bull                      SH_CLERK         4100                                 
+Dellinger                 SH_CLERK         3400                                 
+Cabrio                    SH_CLERK         3000                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Chung                     SH_CLERK         3800                                 
+Dilly                     SH_CLERK         3600                                 
+Gates                     SH_CLERK         2900                                 
+Perkins                   SH_CLERK         2500                                 
+Bell                      SH_CLERK         4000                                 
+Everett                   SH_CLERK         3900                                 
+McCain                    SH_CLERK         3200                                 
+Jones                     SH_CLERK         2800                                 
+Walsh                     SH_CLERK         3100                                 
+Feeney                    SH_CLERK         3000                                 
+OConnell                  SH_CLERK         2600                                 
+
+LAST_NAME                 JOB_ID            SAL                                 
+------------------------- ---------- ----------                                 
+Grant                     SH_CLERK         2600                                 
+Whalen                    AD_ASST          4400                                 
+Hartstein                 MK_MAN          13000                                 
+Fay                       MK_REP           6000                                 
+Mavris                    HR_REP           6500                                 
+Baer                      PR_REP          10000                                 
+Higgins                   AC_MGR          12008                                 
+Gietz                     AC_ACCOUNT       8300                                 
+
+107 rows selected.
+
+SQL> spool practice1pt1q4.txt

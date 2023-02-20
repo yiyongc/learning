@@ -1,0 +1,58 @@
+body {
+	background-color: gray;
+}
+
+#movieTable {
+	margin-top: 50px;
+	text-align: center;
+	border: solid;
+	border-width: 1px;
+	background-color: #ccebff;
+}
+
+#movieCaption {
+	font-size: 150%;
+	font-weight:bold;
+	padding: 10px;
+	background: black;
+	color: #0099ff;
+}
+
+#songTable {
+	border: solid thin;
+	border-width: 1px;
+	background-color: #ccff99;
+}
+
+#songCaption {
+	font-size: 150%;
+	font-weight:bold;
+	padding: 10px;
+	color: #4dF2FF;
+}
+
+#foodTable {
+	border-style: dotted;
+	border-width: 5px;
+	background-color: #3366ff;
+}
+
+#foodCaption {
+	font-size: 150%;
+	font-weight:bold;
+	padding: 10px;
+	background: blue;
+	color: red;	
+}
+td {
+	
+	border-style:double;
+}
+th {
+	border-style:solid;
+}
+footer {
+	margin-top:50px;
+	font-style:italic;
+	text-align:center;
+}

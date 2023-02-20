@@ -1,0 +1,37 @@
+.nametagnav {
+  height: 2.8em;
+  line-height: 2.8em;
+  width: 14em;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #463a67;
+  border-radius: 15px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+  font-size: 24px;
+  font-family: "Robotica";
+  border-style: inset;
+  border-width: 5px;
+  border-color: lightsteelblue;
+}
+
+.nametagnav:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+}
+
+.nametag {
+  color: #2d6b1e;
+  height: 1.7em;
+  line-height: 1.7em;
+  width: 650px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #b2bccc;
+  border-radius: 15px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+  font-size: 38px;
+  font-family: "futurespore";
+  border-style: inset;
+  border-width: 5px;
+  border-color: lightsteelblue;
+  margin: 0 auto;
+}

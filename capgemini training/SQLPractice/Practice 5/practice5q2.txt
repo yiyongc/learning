@@ -1,0 +1,45 @@
+SQL> SELECT last_name, department_id, department_name FROM employees NATURAL JOIN departments;
+
+LAST_NAME                 DEPARTMENT_ID DEPARTMENT_NAME                         
+------------------------- ------------- ------------------------------          
+Kochhar                              90 Executive                               
+De Haan                              90 Executive                               
+Ernst                                60 IT                                      
+Austin                               60 IT                                      
+Pataballa                            60 IT                                      
+Lorentz                              60 IT                                      
+Faviet                              100 Finance                                 
+Chen                                100 Finance                                 
+Sciarra                             100 Finance                                 
+Urman                               100 Finance                                 
+Popp                                100 Finance                                 
+
+LAST_NAME                 DEPARTMENT_ID DEPARTMENT_NAME                         
+------------------------- ------------- ------------------------------          
+Khoo                                 30 Purchasing                              
+Baida                                30 Purchasing                              
+Tobias                               30 Purchasing                              
+Himuro                               30 Purchasing                              
+Colmenares                           30 Purchasing                              
+Bissot                               50 Shipping                                
+Atkinson                             50 Shipping                                
+Marlow                               50 Shipping                                
+Olson                                50 Shipping                                
+Tucker                               80 Sales                                   
+Bernstein                            80 Sales                                   
+
+LAST_NAME                 DEPARTMENT_ID DEPARTMENT_NAME                         
+------------------------- ------------- ------------------------------          
+Hall                                 80 Sales                                   
+Olsen                                80 Sales                                   
+Cambrault                            80 Sales                                   
+Tuvault                              80 Sales                                   
+Sarchand                             50 Shipping                                
+Bull                                 50 Shipping                                
+Dellinger                            50 Shipping                                
+Cabrio                               50 Shipping                                
+Fay                                  20 Marketing                               
+Gietz                               110 Accounting                              
+
+32 rows selected.
+

@@ -1,0 +1,5 @@
+SQL> SELECT e.last_name, e.department_id FROM employees e WHERE employee_id = 176;
+
+LAST_NAME                 DEPARTMENT_ID                                         
+------------------------- -------------                                         
+Taylor                               80                                         
