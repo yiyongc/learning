@@ -22,7 +22,7 @@ The basic design will be an inventory system where games can be sorted by publis
 * Buy game (No stock, throws appropriate error messages)
 * Find game by publisher name
 
-### Non-relational Database Project
+### Future Improvements: Non-relational Database Project
 
 The design for non-relation database project will be even simpler. It will be a warranty registration form where a user has to provide proof of purchase for their product 
 
