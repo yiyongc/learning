@@ -6,9 +6,13 @@ import (
 	"github.com/knadh/koanf/providers/env"
 	"github.com/knadh/koanf/providers/file"
 	"github.com/knadh/koanf/v2"
+	"net/http"
 	"strings"
 	"yiyongc.com/sbp-go-chi/pkg/config"
 	"yiyongc.com/sbp-go-chi/pkg/database"
+	"yiyongc.com/sbp-go-chi/pkg/handlers"
+	"yiyongc.com/sbp-go-chi/pkg/routers"
+	"yiyongc.com/sbp-go-chi/pkg/service"
 )
 
 func main() {
@@ -21,13 +25,18 @@ func main() {
 	// Initialise database and repositories
 	db := database.NewDatabase(c)
 
-	//p := db.PublisherRepository.AddPublisher("test1")
-	//
-	//g := db.GameRepository.AddGame("game1", time.Now(), 123, p)
+	// Create services required for application
+	ps := service.NewPublisherService(db.PublisherRepository)
 
-	g := db.GameRepository.FindOneById(3)
+	// Initialise routes and handler functions
+	h := handlers.NewHandler(&ps)
+	r := routers.NewRouter(&h)
 
-	fmt.Println(g.Id)
+	println(fmt.Sprintf("Serving application on port %v", c.Port))
+	err := http.ListenAndServe(fmt.Sprintf(":%v", c.Port), r)
+	if err != nil {
+		return
+	}
 }
 
 func loadAppConfig() *koanf.Koanf {

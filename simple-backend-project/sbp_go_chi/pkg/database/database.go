@@ -11,8 +11,8 @@ import (
 )
 
 type AppDatabase struct {
-	PublisherRepository repository.PublisherRepositoryInterface
-	GameRepository      repository.GameRepositoryInterface
+	PublisherRepository *repository.PublisherRepositoryInterface
+	GameRepository      *repository.GameRepositoryInterface
 }
 
 func NewDatabase(config *config.AppConfig) *AppDatabase {
@@ -25,8 +25,11 @@ func NewDatabase(config *config.AppConfig) *AppDatabase {
 	// Print all queries to stdout.
 	db.AddQueryHook(bundebug.NewQueryHook(bundebug.WithVerbose(true)))
 
+	pr := repository.NewPublisherRepository(db)
+	gr := repository.NewGameRepository(db)
+
 	return &AppDatabase{
-		PublisherRepository: repository.NewPublisherRepository(db),
-		GameRepository:      repository.NewGameRepository(db),
+		PublisherRepository: &pr,
+		GameRepository:      &gr,
 	}
 }

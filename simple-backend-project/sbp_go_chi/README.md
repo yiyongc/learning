@@ -22,6 +22,7 @@ go run cmd/sbp-go-chi/sbp-go-chi.go
 # Packages Used
 
 - go-chi
+- go-chi/render
 - golang-migrate
 - bun
 - bun/driver/pgdriver

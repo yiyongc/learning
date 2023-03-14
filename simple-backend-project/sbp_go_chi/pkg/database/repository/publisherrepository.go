@@ -9,6 +9,7 @@ import (
 
 type PublisherRepositoryInterface interface {
 	AddPublisher(name string) *models.Publisher
+	GetAllPublishers() []*models.Publisher
 }
 
 func NewPublisherRepository(db *bun.DB) PublisherRepositoryInterface {
@@ -32,4 +33,16 @@ func (p *PublisherRepository) AddPublisher(name string) *models.Publisher {
 		panic("Error in inserting publisher")
 	}
 	return pub
+}
+
+func (p *PublisherRepository) GetAllPublishers() []*models.Publisher {
+	var pubs []*models.Publisher
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+	err := p.db.NewSelect().TableExpr("publishers").Scan(ctx, &pubs)
+	if err != nil {
+		println(err)
+		panic("Error in fetching publishers")
+	}
+	return pubs
 }
