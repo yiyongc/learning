@@ -16,6 +16,18 @@ func NewPublisherService(r *repository.PublisherRepositoryInterface) PublisherSe
 	return p
 }
 
+func (s PublisherService) CreatePublisher(name string) *models.Publisher {
+	return (*s.pubRepo).AddPublisher(name)
+}
+
 func (s PublisherService) GetPublishers() []*models.Publisher {
 	return (*s.pubRepo).GetAllPublishers()
+}
+
+func (s PublisherService) GetPublisherById(id int64) *models.Publisher {
+	return (*s.pubRepo).FindOneById(id)
+}
+
+func (s PublisherService) DeletePublisherById(id int64) error {
+	return (*s.pubRepo).DeleteById(id)
 }

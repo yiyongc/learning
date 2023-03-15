@@ -28,6 +28,9 @@ func publisherRouter(h *handlers.Handler) chi.Router {
 	r.Use(render.SetContentType(render.ContentTypeJSON))
 
 	r.Get("/", h.GetAllPublishers)
+	r.Get("/{id}", h.GetPublisherById)
+	r.Post("/", h.CreatePublisher)
+	r.Delete("/{id}", h.DeletePublisherById)
 
 	return r
 }
