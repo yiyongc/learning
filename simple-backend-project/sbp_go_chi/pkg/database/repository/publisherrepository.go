@@ -14,6 +14,7 @@ type PublisherRepositoryInterface interface {
 	GetAllPublishers() []*models.Publisher
 	FindOneById(id int64) *models.Publisher
 	DeleteById(id int64) error
+	FindOneByName(name string) *models.Publisher
 }
 
 func NewPublisherRepository(db *bun.DB) PublisherRepositoryInterface {
@@ -75,7 +76,10 @@ func (p *PublisherRepository) FindOneById(id int64) *models.Publisher {
 func (p *PublisherRepository) DeleteById(id int64) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	res, err := p.db.NewDelete().Model((*models.Publisher)(nil)).Where("id = ?", id).Exec(ctx)
+	res, err := p.db.NewDelete().
+		Model((*models.Publisher)(nil)).
+		Where("id = ?", id).
+		Exec(ctx)
 	if err != nil {
 		return err
 	}
@@ -84,4 +88,15 @@ func (p *PublisherRepository) DeleteById(id int64) error {
 		return errors.New("deletion failed. id does not exist")
 	}
 	return nil
+}
+
+func (p *PublisherRepository) FindOneByName(name string) *models.Publisher {
+	pub := &models.Publisher{}
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	err := p.db.NewSelect().Model(pub).Where("name = ?", name).Scan(ctx)
+	if err != nil {
+		return nil
+	}
+	return pub
 }

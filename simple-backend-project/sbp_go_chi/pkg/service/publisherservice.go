@@ -31,3 +31,7 @@ func (s PublisherService) GetPublisherById(id int64) *models.Publisher {
 func (s PublisherService) DeletePublisherById(id int64) error {
 	return (*s.pubRepo).DeleteById(id)
 }
+
+func (s PublisherService) GetPublisherByName(name string) *models.Publisher {
+	return (*s.pubRepo).FindOneByName(name)
+}

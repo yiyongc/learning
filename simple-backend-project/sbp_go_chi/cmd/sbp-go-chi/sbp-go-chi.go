@@ -27,9 +27,10 @@ func main() {
 
 	// Create services required for application
 	ps := service.NewPublisherService(db.PublisherRepository)
+	gs := service.NewGameService(db.GameRepository)
 
 	// Initialise routes and handler functions
-	h := handlers.NewHandler(&ps)
+	h := handlers.NewHandler(&ps, &gs)
 	r := routers.NewRouter(&h)
 
 	println(fmt.Sprintf("Serving application on port %v", c.Port))
