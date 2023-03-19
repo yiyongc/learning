@@ -1,0 +1,9 @@
+server.port: 8080
+
+database:
+  host: localhost
+  port: 5432
+  name: sbp_go_echo
+  username: postgres
+  password:
+  ssl: false
