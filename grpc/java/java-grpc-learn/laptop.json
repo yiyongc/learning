@@ -1,0 +1,57 @@
+{
+  "id": "21de793d-7773-4a75-af2f-a22d674fbf5a",
+  "brand": "Acer",
+  "name": "Nitro",
+  "cpu": {
+    "brand": "Intel",
+    "name": "Core i9-9980HK",
+    "number_cores": 2,
+    "number_threads": 7,
+    "min_ghz": 2.145446149894657,
+    "max_ghz": 3.2247149484269775
+  },
+  "ram": {
+    "value": "19",
+    "unit": "GIGABYTE"
+  },
+  "gpus": [{
+    "brand": "NVIDIA",
+    "name": "RTX 2070",
+    "min_ghz": 1.173758799318827,
+    "max_ghz": 1.2965973879686274,
+    "memory": {
+      "value": "6",
+      "unit": "GIGABYTE"
+    }
+  }],
+  "storages": [{
+    "driver": "SSD",
+    "memory": {
+      "value": "530",
+      "unit": "GIGABYTE"
+    }
+  }, {
+    "driver": "HDD",
+    "memory": {
+      "value": "4",
+      "unit": "TERABYTE"
+    }
+  }],
+  "screen": {
+    "size_inch": 15.811019,
+    "resolution": {
+      "width": 2455,
+      "height": 1381
+    },
+    "panel": "IPS",
+    "multitouch": false
+  },
+  "keyboard": {
+    "layout": "AZERTY",
+    "backlit": true
+  },
+  "weight_kg": 2.655052027907943,
+  "price_usd": 2598.895641756667,
+  "release_year": 2015,
+  "updated_at": "2023-12-08T07:45:59.108912800Z"
+}

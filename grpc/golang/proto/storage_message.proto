@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "memory_message.proto";
+option java_package = "com.yiyongc.javagrpclearn.pb";
+option java_multiple_files = true;
+
+option go_package = "/pb";
+
+message Storage {
+  enum Driver  {
+    UNKNOWN = 0;
+    HDD = 1;
+    SSD = 2;
+  }
+
+  Driver driver = 1;
+  Memory memory = 2;
+}
