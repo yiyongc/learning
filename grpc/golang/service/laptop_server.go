@@ -7,7 +7,6 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"log"
-	"time"
 	"yiyongc.com/go-grpc-learn/pb"
 )
 
@@ -41,7 +40,7 @@ func (server *LaptopServer) CreateLaptop(
 	}
 
 	// Simulate heavy processing
-	time.Sleep(6 * time.Second)
+	//time.Sleep(6 * time.Second)
 	if errors.Is(ctx.Err(), context.DeadlineExceeded) {
 		log.Print("deadline is exceeded")
 		return nil, status.Error(codes.DeadlineExceeded, "deadline is exceeded")
@@ -67,4 +66,31 @@ func (server *LaptopServer) CreateLaptop(
 		Id: laptop.Id,
 	}
 	return res, nil
+}
+
+func (server *LaptopServer) SearchLaptop(req *pb.SearchLaptopRequest, stream pb.LaptopService_SearchLaptopServer) error {
+	filter := req.GetFilter()
+	log.Printf("received a search laptop request with filter: %v", filter)
+
+	err := server.Store.Search(
+		stream.Context(),
+		filter,
+		func(laptop *pb.Laptop) error {
+			// callback function if found, send response over stream
+			res := &pb.SearchLaptopResponse{
+				Laptop: laptop,
+			}
+			err := stream.Send(res)
+			if err != nil {
+				return err
+			}
+			log.Printf("sent laptop with id: %s", laptop.GetId())
+			return nil
+		},
+	)
+
+	if err != nil {
+		return status.Errorf(codes.Internal, "unexpected error: %v", err)
+	}
+	return nil
 }
