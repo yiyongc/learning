@@ -1,33 +1,33 @@
 {
-  "id": "21de793d-7773-4a75-af2f-a22d674fbf5a",
-  "brand": "Acer",
-  "name": "Nitro",
+  "id": "2f774834-d3f2-439c-9a8f-3a0b02a799c6",
+  "brand": "Lenovo",
+  "name": "Thinkpad X1",
   "cpu": {
     "brand": "Intel",
-    "name": "Core i9-9980HK",
-    "number_cores": 2,
-    "number_threads": 7,
-    "min_ghz": 2.145446149894657,
-    "max_ghz": 3.2247149484269775
+    "name": "Core i7-9750H",
+    "number_cores": 5,
+    "number_threads": 6,
+    "min_ghz": 2.9610849536759662,
+    "max_ghz": 4.742348719781172
   },
   "ram": {
-    "value": "19",
+    "value": "27",
     "unit": "GIGABYTE"
   },
   "gpus": [{
     "brand": "NVIDIA",
-    "name": "RTX 2070",
-    "min_ghz": 1.173758799318827,
-    "max_ghz": 1.2965973879686274,
+    "name": "GTX 1070",
+    "min_ghz": 1.1492533077209681,
+    "max_ghz": 1.3359522957460637,
     "memory": {
-      "value": "6",
+      "value": "3",
       "unit": "GIGABYTE"
     }
   }],
   "storages": [{
     "driver": "SSD",
     "memory": {
-      "value": "530",
+      "value": "337",
       "unit": "GIGABYTE"
     }
   }, {
@@ -38,20 +38,20 @@
     }
   }],
   "screen": {
-    "size_inch": 15.811019,
+    "size_inch": 16.881638,
     "resolution": {
-      "width": 2455,
-      "height": 1381
+      "width": 6081,
+      "height": 3421
     },
-    "panel": "IPS",
+    "panel": "OLED",
     "multitouch": false
   },
   "keyboard": {
-    "layout": "AZERTY",
-    "backlit": true
+    "layout": "QWERTY",
+    "backlit": false
   },
-  "weight_kg": 2.655052027907943,
-  "price_usd": 2598.895641756667,
-  "release_year": 2015,
-  "updated_at": "2023-12-08T07:45:59.108912800Z"
+  "weight_kg": 2.2769743174642283,
+  "price_usd": 2562.7068871168176,
+  "release_year": 2017,
+  "updated_at": "2023-12-14T07:30:03.294420900Z"
 }

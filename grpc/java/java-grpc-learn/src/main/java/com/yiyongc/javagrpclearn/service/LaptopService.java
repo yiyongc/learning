@@ -3,15 +3,16 @@ package com.yiyongc.javagrpclearn.service;
 import com.yiyongc.javagrpclearn.exception.AlreadyExistsException;
 import com.yiyongc.javagrpclearn.pb.CreateLaptopRequest;
 import com.yiyongc.javagrpclearn.pb.CreateLaptopResponse;
+import com.yiyongc.javagrpclearn.pb.Filter;
 import com.yiyongc.javagrpclearn.pb.Laptop;
 import com.yiyongc.javagrpclearn.pb.LaptopServiceGrpc;
+import com.yiyongc.javagrpclearn.pb.SearchLaptopRequest;
+import com.yiyongc.javagrpclearn.pb.SearchLaptopResponse;
 import io.grpc.Context;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import io.netty.util.internal.StringUtil;
-
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public class LaptopService extends LaptopServiceGrpc.LaptopServiceImplBase {
@@ -74,5 +75,21 @@ public class LaptopService extends LaptopServiceGrpc.LaptopServiceImplBase {
     responseObserver.onCompleted();
 
     logger.info("saved laptop with ID: " + other.getId());
+  }
+
+  @Override
+  public void searchLaptop(SearchLaptopRequest request,
+      StreamObserver<SearchLaptopResponse> responseObserver) {
+    Filter filter = request.getFilter();
+    logger.info("got a search laptop request with filter: \n" + filter);
+
+    store.search(Context.current(), filter, laptop -> {
+      logger.info("found laptop with ID: " + laptop.getId());
+      SearchLaptopResponse response = SearchLaptopResponse.newBuilder().setLaptop(laptop).build();
+      responseObserver.onNext(response);
+    });
+
+    responseObserver.onCompleted();
+    logger.info("search laptop completed");
   }
 }
