@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"flag"
+	"fmt"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
@@ -12,6 +13,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 	"yiyongc.com/go-grpc-learn/pb"
 	"yiyongc.com/go-grpc-learn/sample"
@@ -68,6 +70,55 @@ func searchLaptop(laptopClient pb.LaptopServiceClient, filter *pb.Filter) {
 	}
 }
 
+func rateLaptop(laptopClient pb.LaptopServiceClient, laptopIds []string, scores []float64) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	stream, err := laptopClient.RateLaptop(ctx)
+	if err != nil {
+		return fmt.Errorf("cannot rate laptop: %v", err)
+	}
+
+	waitResponse := make(chan error)
+	// go routine to receive responses
+	go func() {
+		for {
+			res, err := stream.Recv()
+			if err == io.EOF {
+				log.Print("no more responses")
+				waitResponse <- nil
+				return
+			}
+			if err != nil {
+				waitResponse <- fmt.Errorf("cannot receive stream response: %v", err)
+				return
+			}
+			log.Print("received response: ", res)
+		}
+	}()
+
+	for i, laptopId := range laptopIds {
+		req := &pb.RateLaptopRequest{
+			LaptopId: laptopId,
+			Score:    scores[i],
+		}
+		err := stream.Send(req)
+		if err != nil {
+			return fmt.Errorf("cannot send stream request: %v - %v", err, stream.RecvMsg(nil))
+		}
+		log.Print("sent request: ", req)
+	}
+
+	// sending done
+	err = stream.CloseSend()
+	if err != nil {
+		return fmt.Errorf("cannot close send: %v", err)
+	}
+
+	err = <-waitResponse
+	return err
+}
+
 func testCreateLaptop(laptopClient pb.LaptopServiceClient) {
 	createLaptop(laptopClient, sample.NewLaptop())
 }
@@ -93,6 +144,38 @@ func testUploadImage(laptopClient pb.LaptopServiceClient) {
 	laptop := sample.NewLaptop()
 	createLaptop(laptopClient, laptop)
 	uploadImage(laptopClient, laptop.GetId(), "tmp/laptop.png")
+}
+
+func testRateLaptop(laptopClient pb.LaptopServiceClient) {
+	n := 3
+	laptopIds := make([]string, n)
+
+	for i := 0; i < n; i++ {
+		laptop := sample.NewLaptop()
+		laptopIds[i] = laptop.GetId()
+		createLaptop(laptopClient, laptop)
+	}
+
+	scores := make([]float64, n)
+	for {
+		fmt.Print("rate laptop (y/n)? ")
+		var answer string
+		_, err := fmt.Scan(&answer)
+		if err != nil {
+			log.Fatal("error when scanning for user input for rating laptop")
+		}
+
+		if strings.ToLower(answer) != "y" {
+			break
+		}
+		for i := 0; i < n; i++ {
+			scores[i] = sample.RandomLaptopStore()
+		}
+		err = rateLaptop(laptopClient, laptopIds, scores)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
 }
 
 func uploadImage(laptopClient pb.LaptopServiceClient, laptopId string, imagePath string) {
@@ -172,5 +255,5 @@ func main() {
 	}
 
 	laptopClient := pb.NewLaptopServiceClient(conn)
-	testUploadImage(laptopClient)
+	testRateLaptop(laptopClient)
 }
