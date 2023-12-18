@@ -1,57 +1,57 @@
 {
-  "id": "2f774834-d3f2-439c-9a8f-3a0b02a799c6",
-  "brand": "Lenovo",
-  "name": "Thinkpad X1",
+  "id": "a633b221-55e1-4232-9c7d-2275bd34c748",
+  "brand": "Acer",
+  "name": "Nitro",
   "cpu": {
     "brand": "Intel",
-    "name": "Core i7-9750H",
+    "name": "Core i3-1005G1",
     "number_cores": 5,
     "number_threads": 6,
-    "min_ghz": 2.9610849536759662,
-    "max_ghz": 4.742348719781172
+    "min_ghz": 3.4997641944776667,
+    "max_ghz": 3.8056821817313664
   },
   "ram": {
-    "value": "27",
+    "value": "9",
     "unit": "GIGABYTE"
   },
   "gpus": [{
     "brand": "NVIDIA",
-    "name": "GTX 1070",
-    "min_ghz": 1.1492533077209681,
-    "max_ghz": 1.3359522957460637,
+    "name": "RTX 2070",
+    "min_ghz": 1.2152390935870696,
+    "max_ghz": 1.667574955083903,
     "memory": {
-      "value": "3",
+      "value": "5",
       "unit": "GIGABYTE"
     }
   }],
   "storages": [{
     "driver": "SSD",
     "memory": {
-      "value": "337",
+      "value": "985",
       "unit": "GIGABYTE"
     }
   }, {
     "driver": "HDD",
     "memory": {
-      "value": "4",
+      "value": "5",
       "unit": "TERABYTE"
     }
   }],
   "screen": {
-    "size_inch": 16.881638,
+    "size_inch": 15.326986,
     "resolution": {
-      "width": 6081,
-      "height": 3421
+      "width": 2496,
+      "height": 1404
     },
     "panel": "OLED",
     "multitouch": false
   },
   "keyboard": {
     "layout": "QWERTY",
-    "backlit": false
+    "backlit": true
   },
-  "weight_kg": 2.2769743174642283,
-  "price_usd": 2562.7068871168176,
-  "release_year": 2017,
-  "updated_at": "2023-12-14T07:30:03.294420900Z"
+  "weight_kg": 1.4807088156426351,
+  "price_usd": 2663.809223208391,
+  "release_year": 2016,
+  "updated_at": "2023-12-15T08:04:06.539105800Z"
 }
