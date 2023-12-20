@@ -192,4 +192,8 @@ public class Generator {
   private double randomDouble(double min, double max) {
     return min + rand.nextDouble() * (max - min);
   }
+
+  public double newLaptopScore() {
+    return randomInt(1, 10);
+  }
 }

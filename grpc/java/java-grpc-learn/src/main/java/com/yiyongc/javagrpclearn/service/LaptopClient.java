@@ -9,6 +9,8 @@ import com.yiyongc.javagrpclearn.pb.Laptop;
 import com.yiyongc.javagrpclearn.pb.LaptopServiceGrpc;
 import com.yiyongc.javagrpclearn.pb.Memory;
 import com.yiyongc.javagrpclearn.pb.Memory.Unit;
+import com.yiyongc.javagrpclearn.pb.RateLaptopRequest;
+import com.yiyongc.javagrpclearn.pb.RateLaptopResponse;
 import com.yiyongc.javagrpclearn.pb.SearchLaptopRequest;
 import com.yiyongc.javagrpclearn.pb.SearchLaptopResponse;
 import com.yiyongc.javagrpclearn.pb.UploadImageRequest;
@@ -23,6 +25,7 @@ import io.grpc.stub.StreamObserver;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -155,15 +158,66 @@ public class LaptopClient {
     }
   }
 
+  private void rateLaptop(String[] laptopIds, double[] scores) throws InterruptedException {
+    CountDownLatch finishLatch = new CountDownLatch(1);
+    StreamObserver<RateLaptopRequest> requestObserver =
+        asyncStub
+            .withDeadlineAfter(5, TimeUnit.SECONDS)
+            .rateLaptop(
+                new StreamObserver<>() {
+                  @Override
+                  public void onNext(RateLaptopResponse rateLaptopResponse) {
+                    logger.info(
+                        "laptop rated: id = "
+                            + rateLaptopResponse.getLaptopId()
+                            + ", count = "
+                            + rateLaptopResponse.getRatedCount()
+                            + ", average = "
+                            + rateLaptopResponse.getAverageScore());
+                  }
+
+                  @Override
+                  public void onError(Throwable throwable) {
+                    logger.log(Level.SEVERE, "rate laptop failed: " + throwable.getMessage());
+                    finishLatch.countDown();
+                  }
+
+                  @Override
+                  public void onCompleted() {
+                    logger.info("rate laptop completed");
+                    finishLatch.countDown();
+                  }
+                });
+
+    int n = laptopIds.length;
+    try {
+      for (int i = 0; i < n; i++) {
+        RateLaptopRequest request =
+            RateLaptopRequest.newBuilder().setLaptopId(laptopIds[i]).setScore(scores[i]).build();
+        requestObserver.onNext(request);
+        logger.info(
+            "sent rate laptop request: id = "
+                + request.getLaptopId()
+                + ", score = "
+                + request.getScore());
+      }
+    } catch (Exception e) {
+      logger.log(Level.SEVERE, "unexpected error: " + e.getMessage());
+      requestObserver.onError(e);
+      return;
+    }
+    requestObserver.onCompleted();
+    if (!finishLatch.await(1, TimeUnit.MINUTES)) {
+      logger.warning("request cannot finish within 1 minute");
+    }
+  }
+
   public static void main(String[] args) throws InterruptedException {
     LaptopClient client = new LaptopClient("0.0.0.0", 8080);
-    Generator generator = new Generator();
-
     try {
       //      testCreateAndSearchLaptop(client);
-      Laptop laptop = generator.newLaptop();
-      client.createLaptop(laptop);
-      client.uploadImage(laptop.getId(), "tmp/laptop.jpg");
+      //      testUploadImage(client);
+      testRateLaptop(client);
     } finally {
       client.shutdown();
     }
@@ -186,5 +240,41 @@ public class LaptopClient {
             .build();
 
     client.searchLaptop(filter);
+  }
+
+  private static void testUploadImage(LaptopClient client) throws InterruptedException {
+    Generator generator = new Generator();
+    Laptop laptop = generator.newLaptop();
+    client.createLaptop(laptop);
+    client.uploadImage(laptop.getId(), "tmp/laptop.jpg");
+  }
+
+  private static void testRateLaptop(LaptopClient client) throws InterruptedException {
+    Generator generator = new Generator();
+
+    int n = 3;
+    String[] laptopIds = new String[n];
+
+    for (int i = 0; i < n; i ++ ) {
+      Laptop laptop = generator.newLaptop();
+      laptopIds[i] = laptop.getId();
+      client.createLaptop(laptop);
+    }
+
+    Scanner scanner = new Scanner(System.in);
+    while(true) {
+      logger.info("rate laptop (y/n)? ");
+      String answer = scanner.nextLine();
+      if (answer.toLowerCase().trim().equals("n")) {
+        break;
+      }
+      double[] scores = new double[n];
+      for (int i = 0; i < n; i++) {
+        scores[i] = generator.newLaptopScore();
+      }
+
+      client.rateLaptop(laptopIds, scores);
+    }
+
   }
 }

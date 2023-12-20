@@ -8,6 +8,8 @@ import com.yiyongc.javagrpclearn.pb.Filter;
 import com.yiyongc.javagrpclearn.pb.ImageInfo;
 import com.yiyongc.javagrpclearn.pb.Laptop;
 import com.yiyongc.javagrpclearn.pb.LaptopServiceGrpc;
+import com.yiyongc.javagrpclearn.pb.RateLaptopRequest;
+import com.yiyongc.javagrpclearn.pb.RateLaptopResponse;
 import com.yiyongc.javagrpclearn.pb.SearchLaptopRequest;
 import com.yiyongc.javagrpclearn.pb.SearchLaptopResponse;
 import com.yiyongc.javagrpclearn.pb.UploadImageRequest;
@@ -26,10 +28,12 @@ public class LaptopService extends LaptopServiceGrpc.LaptopServiceImplBase {
 
   private final LaptopStore laptopStore;
   private final ImageStore imageStore;
+  private final RatingStore ratingStore;
 
-  public LaptopService(LaptopStore laptopStore, ImageStore imageStore) {
+  public LaptopService(LaptopStore laptopStore, ImageStore imageStore, RatingStore ratingStore) {
     this.laptopStore = laptopStore;
     this.imageStore = imageStore;
+    this.ratingStore = ratingStore;
   }
 
   @Override
@@ -188,6 +192,45 @@ public class LaptopService extends LaptopServiceGrpc.LaptopServiceImplBase {
         UploadImageResponse response =
             UploadImageResponse.newBuilder().setId(imageId).setSize(imageSize).build();
         responseObserver.onNext(response);
+        responseObserver.onCompleted();
+      }
+    };
+  }
+
+  @Override
+  public StreamObserver<RateLaptopRequest> rateLaptop(
+      StreamObserver<RateLaptopResponse> responseObserver) {
+    return new StreamObserver<>() {
+      @Override
+      public void onNext(RateLaptopRequest rateLaptopRequest) {
+        String laptopId = rateLaptopRequest.getLaptopId();
+        double score = rateLaptopRequest.getScore();
+
+        logger.info("received rate laptop request: id = " + laptopId + ", score = " + score);
+
+        Laptop found = laptopStore.find(laptopId);
+        if (found == null) {
+          responseObserver.onError(
+              Status.NOT_FOUND.withDescription("laptop id does not exist").asRuntimeException());
+          return;
+        }
+        Rating rating = ratingStore.add(laptopId, score);
+        RateLaptopResponse response =
+            RateLaptopResponse.newBuilder()
+                .setLaptopId(laptopId)
+                .setRatedCount(rating.getCount())
+                .setAverageScore(rating.getSum() / rating.getCount())
+                .build();
+        responseObserver.onNext(response);
+      }
+
+      @Override
+      public void onError(Throwable throwable) {
+        logger.warning(throwable.getMessage());
+      }
+
+      @Override
+      public void onCompleted() {
         responseObserver.onCompleted();
       }
     };
