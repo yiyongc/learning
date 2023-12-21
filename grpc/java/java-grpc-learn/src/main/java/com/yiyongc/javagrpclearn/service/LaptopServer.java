@@ -3,6 +3,7 @@ package com.yiyongc.javagrpclearn.service;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
+import io.grpc.protobuf.services.ProtoReflectionService;
 import java.io.IOException;
 import java.util.logging.Logger;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +27,8 @@ public class LaptopServer {
       RatingStore ratingStore) {
     this.port = port;
     LaptopService service = new LaptopService(laptopStore, imageStore, ratingStore);
-    server = serverBuilder.addService(service).build();
+    server =
+        serverBuilder.addService(service).addService(ProtoReflectionService.newInstance()).build();
   }
 
   public void start() throws IOException {
