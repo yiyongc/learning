@@ -1,8 +1,8 @@
 package serializer_test
 
 import (
-	"github.com/golang/protobuf/proto"
 	"github.com/stretchr/testify/require"
+	"google.golang.org/protobuf/proto"
 	"testing"
 	"yiyongc.com/go-grpc-learn/pb"
 	"yiyongc.com/go-grpc-learn/sample"

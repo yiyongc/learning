@@ -12,3 +12,5 @@ client:
 
 test:
 	go test -cover ./...
+
+.PHONY: gen clean server client test
