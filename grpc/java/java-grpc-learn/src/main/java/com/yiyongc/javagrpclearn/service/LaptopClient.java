@@ -21,7 +21,13 @@ import io.grpc.ManagedChannelBuilder;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
 
+import io.grpc.netty.GrpcSslContexts;
+import io.grpc.netty.NettyChannelBuilder;
 import io.grpc.stub.StreamObserver;
+import io.netty.handler.ssl.ClientAuth;
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Iterator;
@@ -30,6 +36,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.net.ssl.SSLException;
 
 public class LaptopClient {
   private static final Logger logger = Logger.getLogger(LaptopClient.class.getName());
@@ -43,6 +50,13 @@ public class LaptopClient {
     blockingStub = LaptopServiceGrpc.newBlockingStub(channel);
     asyncStub = LaptopServiceGrpc.newStub(channel);
   }
+
+  public LaptopClient(String host, int port, SslContext sslContext) {
+    channel = NettyChannelBuilder.forAddress(host, port).sslContext(sslContext).build();
+    blockingStub = LaptopServiceGrpc.newBlockingStub(channel);
+    asyncStub = LaptopServiceGrpc.newStub(channel);
+  }
+
 
   public void shutdown() throws InterruptedException {
     channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
@@ -212,8 +226,20 @@ public class LaptopClient {
     }
   }
 
-  public static void main(String[] args) throws InterruptedException {
-    LaptopClient client = new LaptopClient("0.0.0.0", 8080);
+  private static SslContext loadTLSCredentials() throws SSLException {
+    File clientCertFile = new File("../../cert/client-cert.pem");
+    File clientKeyFile = new File("../../cert/client-key.pem");
+    File serverCACert = new File("../../cert/ca-cert.pem");
+
+    return GrpcSslContexts.forClient()
+        .keyManager(clientCertFile, clientKeyFile) // For mutual TLS
+        .trustManager(serverCACert)
+        .build();
+  }
+
+  public static void main(String[] args) throws Exception {
+    SslContext sslContext = loadTLSCredentials();
+    LaptopClient client = new LaptopClient("0.0.0.0", 8080, sslContext);
     try {
       //      testCreateAndSearchLaptop(client);
       //      testUploadImage(client);

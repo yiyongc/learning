@@ -3,10 +3,17 @@ package com.yiyongc.javagrpclearn.service;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
+import io.grpc.netty.GrpcSslContexts;
+import io.grpc.netty.NettyServerBuilder;
 import io.grpc.protobuf.services.ProtoReflectionService;
+import io.netty.handler.ssl.ClientAuth;
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Logger;
 import java.util.concurrent.TimeUnit;
+import javax.net.ssl.SSLException;
 
 public class LaptopServer {
   private static final Logger logger = Logger.getLogger(LaptopServer.class.getName());
@@ -17,6 +24,20 @@ public class LaptopServer {
   public LaptopServer(
       int port, LaptopStore laptopStore, ImageStore imageStore, RatingStore ratingStore) {
     this(ServerBuilder.forPort(port), port, laptopStore, imageStore, ratingStore);
+  }
+
+  public LaptopServer(
+      int port,
+      LaptopStore laptopStore,
+      ImageStore imageStore,
+      RatingStore ratingStore,
+      SslContext sslContext) {
+    this(
+        NettyServerBuilder.forPort(port).sslContext(sslContext),
+        port,
+        laptopStore,
+        imageStore,
+        ratingStore);
   }
 
   public LaptopServer(
@@ -60,11 +81,25 @@ public class LaptopServer {
     }
   }
 
+  private static SslContext loadTLSCredentials() throws SSLException {
+    File serverCertFile = new File("../../cert/server-cert.pem");
+    File serverKeyFile = new File("../../cert/server-key.pem");
+    File clientCACertFile = new File("../../cert/ca-cert.pem");
+
+    SslContextBuilder ctxBuilder =
+        SslContextBuilder.forServer(serverCertFile, serverKeyFile)
+//            .clientAuth(ClientAuth.NONE); // Server side TLS
+            .clientAuth(ClientAuth.REQUIRE).trustManager(clientCACertFile); // Mutual TLS
+
+    return GrpcSslContexts.configure(ctxBuilder).build();
+  }
+
   public static void main(String[] args) throws InterruptedException, IOException {
     LaptopStore laptopStore = new InMemoryLaptopStore();
     ImageStore imageStore = new DiskImageStore("img");
     RatingStore ratingStore = new InMemoryRatingStore();
-    LaptopServer server = new LaptopServer(8080, laptopStore, imageStore, ratingStore);
+    SslContext sslContext = loadTLSCredentials();
+    LaptopServer server = new LaptopServer(8080, laptopStore, imageStore, ratingStore, sslContext);
     server.start();
     server.blockUntilShutdown();
   }
