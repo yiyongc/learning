@@ -13,4 +13,7 @@ client:
 test:
 	go test -cover ./...
 
-.PHONY: gen clean server client test
+cert:
+	cd ../cert; rm *.pem; rm *.srl; ./gen.sh; cd ../golang
+
+.PHONY: gen clean server client test cert
