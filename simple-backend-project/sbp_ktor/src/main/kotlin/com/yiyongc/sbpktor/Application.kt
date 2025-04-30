@@ -3,6 +3,7 @@ package com.yiyongc.sbpktor
 import com.yiyongc.sbpktor.config.configureDatabases
 import com.yiyongc.sbpktor.repository.GameRepositoryImpl
 import com.yiyongc.sbpktor.repository.PublisherRepositoryImpl
+import com.yiyongc.sbpktor.routes.gameRoutes
 import com.yiyongc.sbpktor.routes.publisherRoutes
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -24,5 +25,6 @@ fun Application.module() {
 
     routing {
         publisherRoutes(publisherRepo, gameRepo)
+        gameRoutes(gameRepo)
     }
 }

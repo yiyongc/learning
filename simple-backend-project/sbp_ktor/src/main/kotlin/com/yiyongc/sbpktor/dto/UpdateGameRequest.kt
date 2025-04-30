@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UpdateGameRequest(
-    val name: String?,
-    val count: Int?,
+    val title: String?,
+    val inventoryCount: Int?,
 )
